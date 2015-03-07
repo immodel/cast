@@ -2,8 +2,8 @@ module.exports = function(model) {
   model.casters = model.casters || [];
     
   model.caster = function(fn) {
-    return this.use(function(opts) {
-      opts.casters.push(fn);
+    return this.use(function(model) {
+      model.casters.push(fn);
     });
   }
      

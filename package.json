@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/immodel/cast/issues"
   },
-  "homepage": "https://github.com/immodel/cast"
+  "homepage": "https://github.com/immodel/cast",
+  "devDependencies": {
+    "immodel": "git://github.com/immodel/immodel",
+    "mocha": "^2.2.0"
+  }
 }
