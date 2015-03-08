@@ -1,13 +1,13 @@
-module.exports = function(model) {
-  model.casters = model.casters || [];
+module.exports = function() {
+  this.casters = this.casters || [];
     
-  model.caster = function(fn) {
-    return this.use(function(model) {
-      model.casters.push(fn);
+  this.caster = function(fn) {
+    return this.use(function() {
+      this.casters.push(fn);
     });
   }
      
-  model.cast = function(value) {
+  this.cast = function(value) {
     this.casters.forEach(function(fn) {
       value = fn(value);
     });
@@ -15,7 +15,7 @@ module.exports = function(model) {
     return value;
   };
   
-  model.set(function(value, type) {
+  this.set(function(value, type) {
     return type.cast(value);
   });
 };
